@@ -1,0 +1,5 @@
+.history
+**/bin
+**/obj
+.vscode
+build
