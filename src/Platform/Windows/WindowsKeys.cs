@@ -1,4 +1,4 @@
-using System.Xml;
+using System.Collections.Generic;
 
 namespace AdditionalKeys.Platform.Windows
 {

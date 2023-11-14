@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace AdditionalKeys.Platform.MacOS
 {
     public class MacOSKeys

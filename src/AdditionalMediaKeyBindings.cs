@@ -1,4 +1,6 @@
-﻿using AdditionalKeys.Platform;
+﻿using System;
+using System.Linq;
+using AdditionalKeys.Platform;
 using AdditionalKeys.Platform.Linux;
 using AdditionalKeys.Platform.MacOS;
 using AdditionalKeys.Platform.Windows;
@@ -6,47 +8,50 @@ using OpenTabletDriver.Desktop.Interop;
 using OpenTabletDriver.Plugin;
 using OpenTabletDriver.Plugin.Attributes;
 using OpenTabletDriver.Plugin.Platform.Keyboard;
-using OpenTabletDriver.Plugin.Tablet;
 
 namespace AdditionalKeys
 {
     [PluginName(PLUGIN_NAME)]
-    public class AdditionalMediaKeyBindings : IStateBinding
+    public class AdditionalMediaKeyBindings : IBinding, IValidateBinding
     {
         private const string PLUGIN_NAME = "Additional - Media Keys";
 
-        [Property("Key"), PropertyValidated(nameof(ValidKeys))]
-        public string Key { set; get; } = String.Empty;
+        [Property("Property")]
+        public string Property { set; get; } = String.Empty;
 
         public IVirtualKeyboard Keyboard { get; set; } = Shared.Keyboard;
 
-        public void Press(TabletReference tablet, IDeviceReport report)
+        public Action Press
         {
-            if (!string.IsNullOrWhiteSpace(Key))
-                Keyboard.Press(Key);
+            get => () => {
+                if (!string.IsNullOrWhiteSpace(Property))
+                    Keyboard.Press(Property);
+            };
         }
 
-        public void Release(TabletReference tablet, IDeviceReport report)
+        public Action Release
         {
-            if (!string.IsNullOrWhiteSpace(Key))
-                Keyboard.Release(Key);
+            get => () => {
+                if (!string.IsNullOrWhiteSpace(Property))
+                    Keyboard.Release(Property);
+            };
         }
 
-        private static IEnumerable<string> validKeys = null!;
+        private string[] validProperties = null!;
         /// <summary>
         /// A list of valid keys for this category (Media Keys).
         /// </summary>
-        public static IEnumerable<string> ValidKeys
+        public string[] ValidProperties
         {
-            get => validKeys ??= DesktopInterop.CurrentPlatform switch
+            get => validProperties ??= SystemInterop.CurrentPlatform switch
             {
-                PluginPlatform.Windows => WindowsKeys.MediaKeys.Keys,
-                PluginPlatform.Linux => LinuxKeys.MediaKeys.Keys,
-                PluginPlatform.MacOS => MacOSKeys.MediaKeys.Keys,
+                PluginPlatform.Windows => WindowsKeys.MediaKeys.Keys.ToArray(),
+                PluginPlatform.Linux => LinuxKeys.MediaKeys.Keys.ToArray(),
+                PluginPlatform.MacOS => MacOSKeys.MediaKeys.Keys.ToArray(),
                 _ => null!
             };
         }
 
-        public override string ToString() => $"{PLUGIN_NAME}: {Key}";
+        public override string ToString() => $"{PLUGIN_NAME}: {Property}";
     }
 }

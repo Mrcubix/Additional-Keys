@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace AdditionalKeys.Platform.Linux
 {
     public class LinuxKeys

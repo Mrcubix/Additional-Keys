@@ -1,3 +1,4 @@
+using System;
 using OpenTabletDriver.Native.Linux;
 
 namespace AdditionalKeys.Platform.Linux.Evdev

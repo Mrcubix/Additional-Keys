@@ -1,4 +1,6 @@
-﻿using OpenTabletDriver.Native.Windows;
+﻿using System;
+using System.Collections.Generic;
+using OpenTabletDriver.Native.Windows;
 using OpenTabletDriver.Native.Windows.Input;
 using OpenTabletDriver.Plugin.Platform.Keyboard;
 

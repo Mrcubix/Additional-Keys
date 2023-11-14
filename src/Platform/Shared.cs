@@ -12,7 +12,7 @@ namespace AdditionalKeys.Platform
         /// <summary>
         /// Gets the virtual keyboard for the current platform.
         /// </summary>
-        public static readonly IVirtualKeyboard Keyboard = DesktopInterop.CurrentPlatform switch
+        public static readonly IVirtualKeyboard Keyboard = SystemInterop.CurrentPlatform switch
         {
             PluginPlatform.Windows => new WindowsVirtualKeyboard(),
             PluginPlatform.Linux => new EvdevVirtualKeyboard(),

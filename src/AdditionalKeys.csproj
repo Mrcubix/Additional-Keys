@@ -1,10 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <TargetFramework>net5.0</TargetFramework>
+    <NoWarn>NETSDK1138</NoWarn>
     <Nullable>enable</Nullable>
-    <TrimMode>link</TrimMode>
   </PropertyGroup>
 
   <ItemGroup>
