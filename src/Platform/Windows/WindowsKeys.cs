@@ -1,5 +1,3 @@
-using System.Xml;
-
 namespace AdditionalKeys.Platform.Windows
 {
     public class WindowsKeys

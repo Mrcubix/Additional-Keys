@@ -16,7 +16,7 @@ namespace AdditionalKeys
         private const string PLUGIN_NAME = "Additional - F13-F24";
 
         [Property("Key"), PropertyValidated(nameof(ValidKeys))]
-        public string Key { set; get; } = String.Empty;
+        public string Key { set; get; } = string.Empty;
 
         public IVirtualKeyboard Keyboard { get; set; } = Shared.Keyboard;
 

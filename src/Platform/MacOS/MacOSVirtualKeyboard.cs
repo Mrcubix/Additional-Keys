@@ -1,4 +1,4 @@
-﻿using OpenTabletDriver.Native.OSX.Generic;
+﻿using OpenTabletDriver.Native.OSX.Input;
 using OpenTabletDriver.Plugin.Platform.Keyboard;
 
 namespace AdditionalKeys.Platform.MacOS

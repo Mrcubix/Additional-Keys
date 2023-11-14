@@ -1,5 +1,4 @@
-﻿using OpenTabletDriver.Native.Windows;
-using OpenTabletDriver.Native.Windows.Input;
+﻿using OpenTabletDriver.Native.Windows.Input;
 using OpenTabletDriver.Plugin.Platform.Keyboard;
 
 namespace AdditionalKeys.Platform.Windows
