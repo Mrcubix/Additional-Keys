@@ -20,4 +20,4 @@ Remove-Item -Recurse -Force temp
 
 # zip the contents of the build folder
 
-Compress-Archive -Path .\build\* -DestinationPath .\build\AdditionalKeys.zip
+Compress-Archive -Path .\build\* -DestinationPath ".\build\Additional-Keys-0.5.x-1.0.0.zip"

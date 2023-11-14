@@ -22,6 +22,6 @@ rm -rf temp
 cd build
 
 # zip the contents of the build folder
-zip -r AdditionalKeys.zip *
+zip -r "Additional-Keys-0.5.x-1.0.0.zip" *
 
 cd ..
