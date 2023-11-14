@@ -14,6 +14,14 @@ fi
 
 # Copy files to build directory
 cp temp/AdditionalKeys.dll build/AdditionalKeys.dll
+cp temp/AdditionalKeys.pdb build/AdditionalKeys.pdb
 
 # Remove temp directory
 rm -rf temp
+
+cd build
+
+# zip the contents of the build folder
+zip -r AdditionalKeys.zip *
+
+cd ..

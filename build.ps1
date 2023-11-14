@@ -12,7 +12,12 @@ if (!(Test-Path -Path .\build)) {
 
 # copy AdditionalKeys.dll to build folder
 Copy-Item .\temp\AdditionalKeys.dll .\build\AdditionalKeys.dll
+Copy-Item .\temp\AdditionalKeys.pdb .\build\AdditionalKeys.pdb
 
 # remove temp folder
 
 Remove-Item -Recurse -Force temp
+
+# zip the contents of the build folder
+
+Compress-Archive -Path .\build\* -DestinationPath .\build\AdditionalKeys.zip
